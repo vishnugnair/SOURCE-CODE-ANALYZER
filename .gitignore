@@ -1,0 +1,23 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore secret keys
+.env
+
+# Ignore database files
+db/
+*.sqlite
+*.db
+
+# Ignore repository clones
+repo/
+
+# Ignore log files
+logs/
+*.log

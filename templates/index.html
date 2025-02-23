@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Source Code Analyzer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="chat-container">
+      <h1>📜 Source Code Analyzer</h1>
+
+      <!-- Repo URL Input Form -->
+      <form action="/" method="POST">
+        <label for="repo_url">Enter GitHub Repo URL:</label>
+        <div class="input-container">
+          <input
+            type="text"
+            id="repo_url"
+            name="repo_url"
+            placeholder="Enter GitHub repo URL..."
+            required
+          />
+          <button type="submit">Clone & Analyze</button>
+        </div>
+      </form>
+
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %} {% if success %}
+      <p class="success">{{ success }}</p>
+      {% endif %}
+
+      <form action="/chat" method="POST">
+        <label for="question">Ask a question about the code:</label>
+        <div class="input-container">
+          <input
+            type="text"
+            id="question"
+            name="question"
+            placeholder="Type your question..."
+            required
+          />
+          <button type="submit">Analyze</button>
+        </div>
+      </form>
+
+      {% if response %}
+      <div class="response-box">
+        <p><strong>🧐 Question:</strong> {{ query }}</p>
+        <p><strong>💡 Answer:</strong> {{ response }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
